@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/50 to-transparent"></div>
 
       {/* Content */}
-      <div className="relative h-full flex items-center pt-24 pb-48 md:pb-40 md:pt-20">
+      <div className="relative h-full flex items-center pt-24 pb-56 md:pb-48 md:pt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 w-full">
           <div className="max-w-4xl mt-8 sm:mt-24 md:mt-36 lg:mt-44">
             {/* Text content - Left aligned */}
@@ -65,7 +65,7 @@ const Hero = () => {
           </div>
 
           {/* Features - Horizontal on all screens */}
-          <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-2xl md:max-w-4xl mx-auto mt-6 md:mt-8 mb-8 md:mb-12">
+          <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-2xl md:max-w-4xl mx-auto mt-6 md:mt-8 mb-16 md:mb-20">
               {/* Instant */}
               <div className="relative pt-5 md:pt-8 animate-scale-in opacity-0 delay-300">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
