@@ -32,7 +32,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative h-full flex items-center pt-24 pb-48 md:pb-40 md:pt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 w-full">
-          <div className="max-w-4xl mt-6 sm:mt-20 md:mt-32 lg:mt-40">
+          <div className="max-w-4xl mt-8 sm:mt-24 md:mt-36 lg:mt-44">
             {/* Text content - Left aligned */}
             <h1 className="text-[22px] sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4 leading-[1.1] sm:leading-tight md:whitespace-nowrap text-left animate-fade-in-up opacity-0" style={{ color: '#1e293b' }}>
               Medical Prescription Generator
