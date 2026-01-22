@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/50 to-transparent"></div>
 
       {/* Content */}
-      <div className="relative h-full flex items-center pt-24 pb-40 md:pb-32 md:pt-20">
+      <div className="relative h-full flex items-center pt-24 pb-48 md:pb-40 md:pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
           <div className="max-w-4xl mt-4 sm:mt-16 md:mt-24 lg:mt-32">
             {/* Text content - Left aligned */}
@@ -42,8 +42,8 @@ const Hero = () => {
             </p>
 
             {/* Buttons */}
-            <div className="mb-10 sm:mb-12 md:mb-16 animate-fade-in-up opacity-0 delay-200">
-              <div className="flex flex-col items-center w-full md:w-auto">
+            <div className="mb-10 sm:mb-12 md:mb-16 animate-fade-in-up opacity-0 delay-200 inline-block">
+              <div className="flex flex-col items-center">
                 <Button
                   onClick={handleGetStarted}
                   size="lg"
@@ -65,7 +65,7 @@ const Hero = () => {
           </div>
 
           {/* Features - Horizontal on all screens */}
-          <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-2xl md:max-w-4xl mx-auto mt-6 md:mt-8">
+          <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-2xl md:max-w-4xl mx-auto mt-6 md:mt-8 mb-8 md:mb-12">
               {/* Instant */}
               <div className="relative pt-5 md:pt-8 animate-scale-in opacity-0 delay-300">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
