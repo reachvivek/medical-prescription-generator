@@ -207,9 +207,9 @@ const CreatePrescriptionNew = () => {
               const isCurrent = stepNumber === currentStep;
 
               return (
-                <div key={stepNumber} className="flex items-center flex-1">
+                <div key={stepNumber} className="flex items-start flex-1">
                   {/* Step Circle */}
-                  <div className="flex flex-col items-center flex-shrink-0">
+                  <div className="flex flex-col items-center flex-1">
                     <div
                       className={cn(
                         'w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300',
@@ -228,10 +228,10 @@ const CreatePrescriptionNew = () => {
                         <span className="text-sm">{stepNumber}</span>
                       )}
                     </div>
-                    <div className="mt-2 text-center">
+                    <div className="mt-2 text-center w-full px-2">
                       <p
                         className={cn(
-                          'text-xs font-medium',
+                          'text-xs font-medium whitespace-nowrap',
                           isCurrent && 'text-sky-700',
                           isCompleted && 'text-sky-600',
                           !isCurrent && !isCompleted && 'text-gray-500'
@@ -239,7 +239,7 @@ const CreatePrescriptionNew = () => {
                       >
                         {step.title}
                       </p>
-                      <p className="text-[10px] text-gray-500 mt-0.5 hidden lg:block">
+                      <p className="text-[10px] text-gray-500 mt-0.5 hidden lg:block whitespace-nowrap">
                         {step.description}
                       </p>
                     </div>
@@ -249,7 +249,7 @@ const CreatePrescriptionNew = () => {
                   {index < STEPS.length - 1 && (
                     <div
                       className={cn(
-                        'flex-1 h-0.5 mx-2 transition-all duration-300',
+                        'flex-1 h-0.5 mt-5 mx-2 transition-all duration-300',
                         isCompleted ? 'bg-sky-600' : 'bg-gray-200'
                       )}
                     />
