@@ -67,39 +67,39 @@ const Hero = () => {
           {/* Features - Horizontal on all screens */}
           <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-2xl md:max-w-4xl mx-auto mt-6 md:mt-8 mb-16 md:mb-20">
               {/* Instant */}
-              <div className="relative pt-5 md:pt-8 animate-scale-in opacity-0 delay-300">
+              <div className="relative pt-4 md:pt-7 animate-scale-in opacity-0 delay-300">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
                   <div className="w-9 h-9 md:w-16 md:h-16 bg-sky-50 rounded-lg md:rounded-2xl flex items-center justify-center border-2 md:border-4 border-white shadow-sm">
                     <Zap className="h-4 w-4 md:h-7 md:w-7 text-sky-500" />
                   </div>
                 </div>
-                <div className="group bg-white md:bg-white/80 md:backdrop-blur-sm rounded-lg md:rounded-2xl px-2 pt-6 pb-4 md:p-6 md:pt-12 md:pb-8 text-center border border-gray-100 md:border-gray-200/50 shadow-sm md:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.15)] min-h-[90px] md:min-h-0 transition-all duration-300 hover:shadow-[0_15px_35px_-5px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:border-gray-300">
+                <div className="group bg-white md:bg-white/80 md:backdrop-blur-sm rounded-lg md:rounded-2xl px-2 pt-5 pb-3 md:p-5 md:pt-10 md:pb-7 text-center border border-gray-100 md:border-gray-200/50 shadow-sm md:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.15)] min-h-[80px] md:min-h-0 transition-all duration-300 hover:shadow-[0_15px_35px_-5px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:border-gray-300">
                   <h3 className="text-xs md:text-lg font-semibold text-gray-900 mb-1 md:mb-1.5 leading-tight">Instant</h3>
                   <p className="text-[10px] md:text-sm text-gray-600 opacity-75 leading-tight md:leading-relaxed">No setup required</p>
                 </div>
               </div>
 
               {/* Secure */}
-              <div className="relative pt-5 md:pt-8 animate-scale-in opacity-0 delay-400">
+              <div className="relative pt-4 md:pt-7 animate-scale-in opacity-0 delay-400">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
                   <div className="w-9 h-9 md:w-16 md:h-16 bg-sky-50 rounded-lg md:rounded-2xl flex items-center justify-center border-2 md:border-4 border-white shadow-sm">
                     <ShieldCheck className="h-4 w-4 md:h-7 md:w-7 text-sky-500" />
                   </div>
                 </div>
-                <div className="group bg-white md:bg-white/80 md:backdrop-blur-sm rounded-lg md:rounded-2xl px-2 pt-6 pb-4 md:p-6 md:pt-12 md:pb-8 text-center border border-gray-100 md:border-gray-200/50 shadow-sm md:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.15)] min-h-[90px] md:min-h-0 transition-all duration-300 hover:shadow-[0_15px_35px_-5px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:border-gray-300">
+                <div className="group bg-white md:bg-white/80 md:backdrop-blur-sm rounded-lg md:rounded-2xl px-2 pt-5 pb-3 md:p-5 md:pt-10 md:pb-7 text-center border border-gray-100 md:border-gray-200/50 shadow-sm md:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.15)] min-h-[80px] md:min-h-0 transition-all duration-300 hover:shadow-[0_15px_35px_-5px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:border-gray-300">
                   <h3 className="text-xs md:text-lg font-semibold text-gray-900 mb-1 md:mb-1.5 leading-tight">Secure</h3>
                   <p className="text-[10px] md:text-sm text-gray-600 opacity-75 leading-tight md:leading-relaxed">HIPAA Compliant</p>
                 </div>
               </div>
 
               {/* Professional */}
-              <div className="relative pt-5 md:pt-8 animate-scale-in opacity-0 delay-500">
+              <div className="relative pt-4 md:pt-7 animate-scale-in opacity-0 delay-500">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 transition-transform duration-300 group-hover:scale-110">
                   <div className="w-9 h-9 md:w-16 md:h-16 bg-sky-50 rounded-lg md:rounded-2xl flex items-center justify-center border-2 md:border-4 border-white shadow-sm">
                     <Printer className="h-4 w-4 md:h-7 md:w-7 text-sky-500" />
                   </div>
                 </div>
-                <div className="group bg-white md:bg-white/80 md:backdrop-blur-sm rounded-lg md:rounded-2xl px-2 pt-6 pb-4 md:p-6 md:pt-12 md:pb-8 text-center border border-gray-100 md:border-gray-200/50 shadow-sm md:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.15)] min-h-[90px] md:min-h-0 transition-all duration-300 hover:shadow-[0_15px_35px_-5px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:border-gray-300">
+                <div className="group bg-white md:bg-white/80 md:backdrop-blur-sm rounded-lg md:rounded-2xl px-2 pt-5 pb-3 md:p-5 md:pt-10 md:pb-7 text-center border border-gray-100 md:border-gray-200/50 shadow-sm md:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.15)] min-h-[80px] md:min-h-0 transition-all duration-300 hover:shadow-[0_15px_35px_-5px_rgba(0,0,0,0.25)] hover:-translate-y-2 hover:border-gray-300">
                   <h3 className="text-xs md:text-lg font-semibold text-gray-900 mb-1 md:mb-1.5 leading-tight">Professional</h3>
                   <p className="text-[10px] md:text-sm text-gray-600 opacity-75 leading-tight md:leading-relaxed">Trusted by 500+ doctors</p>
                 </div>
