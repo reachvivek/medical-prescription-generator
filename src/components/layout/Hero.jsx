@@ -32,12 +32,12 @@ const Hero = () => {
       {/* Content */}
       <div className="relative h-full flex items-center pt-24 pb-48 md:pb-40 md:pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
-          <div className="max-w-4xl mt-4 sm:mt-16 md:mt-24 lg:mt-32">
+          <div className="max-w-4xl mt-6 sm:mt-20 md:mt-32 lg:mt-40">
             {/* Text content - Left aligned */}
-            <h1 className="text-[28px] sm:text-3xl md:text-4xl font-semibold mb-3 sm:mb-4 leading-[1.1] sm:leading-tight md:whitespace-nowrap text-left animate-fade-in-up opacity-0" style={{ color: '#1e293b' }}>
+            <h1 className="text-[22px] sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4 leading-[1.1] sm:leading-tight md:whitespace-nowrap text-left animate-fade-in-up opacity-0" style={{ color: '#1e293b' }}>
               Medical Prescription Generator
             </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-8 leading-relaxed opacity-80 text-left animate-fade-in-up opacity-0 delay-100" style={{ color: '#64748b' }}>
+            <p className="text-[13px] sm:text-sm md:text-base mb-8 sm:mb-8 leading-relaxed opacity-80 text-left animate-fade-in-up opacity-0 delay-100" style={{ color: '#64748b' }}>
               Create professional prescriptions in minutes
             </p>
 
@@ -47,13 +47,13 @@ const Hero = () => {
                 <Button
                   onClick={handleGetStarted}
                   size="lg"
-                  className="w-full md:w-auto min-h-[52px] md:min-h-0 px-8 py-3.5 md:py-3 text-base font-medium rounded-lg shadow-sm md:shadow-lg hover:shadow-md md:hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] mb-3 md:mb-4"
+                  className="w-full md:w-auto min-h-[52px] md:min-h-0 px-8 py-3.5 md:py-3 text-sm font-medium rounded-lg shadow-sm md:shadow-lg hover:shadow-md md:hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] mb-3 md:mb-4"
                 >
                   Create New Prescription
                   <ArrowRight className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
                 <button
-                  className="text-sm font-medium transition-all duration-200 py-2 opacity-70 hover:opacity-100 hover:translate-x-1"
+                  className="text-xs font-medium transition-all duration-200 py-2 opacity-70 hover:opacity-100 hover:translate-x-1"
                   style={{ color: '#0284c7' }}
                   onMouseEnter={(e) => e.target.style.color = '#0369a1'}
                   onMouseLeave={(e) => e.target.style.color = '#0284c7'}
