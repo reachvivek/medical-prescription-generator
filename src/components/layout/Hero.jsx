@@ -11,9 +11,30 @@ const Hero = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const prescriptionRef = useRef(null);
 
-  const handleDownloadPDF = () => {
-    window.print();
-    setShowDownloadDropdown(false);
+  const handleDownloadPDF = async () => {
+    try {
+      // Dynamically import PDF components only when needed (code splitting)
+      const [{ pdf }, { default: SamplePrescriptionPDF }] = await Promise.all([
+        import('@react-pdf/renderer'),
+        import('../pdf/SamplePrescriptionPDF')
+      ]);
+
+      // Generate PDF blob from the PDF component
+      const blob = await pdf(<SamplePrescriptionPDF />).toBlob();
+
+      // Create download link
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `prescription-sample-${new Date().getTime()}.pdf`;
+      link.click();
+
+      // Clean up
+      URL.revokeObjectURL(link.href);
+      setShowDownloadDropdown(false);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('Failed to generate PDF. Please try again.');
+    }
   };
 
   const handleDownloadImage = async () => {
