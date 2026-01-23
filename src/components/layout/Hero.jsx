@@ -32,8 +32,10 @@ const Hero = () => {
       URL.revokeObjectURL(link.href);
       setShowDownloadDropdown(false);
     } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert('Failed to generate PDF. Please try again.');
+      console.error('Detailed PDF generation error:', error);
+      console.error('Error stack:', error.stack);
+      console.error('Error message:', error.message);
+      alert(`Failed to generate PDF: ${error.message}\nPlease check console for details.`);
     }
   };
 
