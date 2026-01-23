@@ -13,14 +13,23 @@ const Hero = () => {
 
   const handleDownloadPDF = async () => {
     try {
-      // Dynamically import PDF components only when needed (code splitting)
-      const [{ pdf }, { default: SamplePrescriptionPDF }] = await Promise.all([
-        import('@react-pdf/renderer'),
-        import('../pdf/SamplePrescriptionPDF')
-      ]);
+      // Call backend API to generate PDF
+      const response = await fetch('http://localhost:3001/api/generate-pdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          // You can pass prescription data here when needed
+        }),
+      });
 
-      // Generate PDF blob from the PDF component
-      const blob = await pdf(<SamplePrescriptionPDF />).toBlob();
+      if (!response.ok) {
+        throw new Error('Failed to generate PDF from server');
+      }
+
+      // Get PDF blob from response
+      const blob = await response.blob();
 
       // Create download link
       const link = document.createElement('a');
@@ -32,10 +41,8 @@ const Hero = () => {
       URL.revokeObjectURL(link.href);
       setShowDownloadDropdown(false);
     } catch (error) {
-      console.error('Detailed PDF generation error:', error);
-      console.error('Error stack:', error.stack);
-      console.error('Error message:', error.message);
-      alert(`Failed to generate PDF: ${error.message}\nPlease check console for details.`);
+      console.error('PDF generation error:', error);
+      alert(`Failed to generate PDF: ${error.message}\nMake sure the backend server is running on port 3001.`);
     }
   };
 
