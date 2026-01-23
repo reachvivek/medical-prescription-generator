@@ -22,8 +22,9 @@ const styles = StyleSheet.create({
   header: {
     marginBottom: 20,
     paddingBottom: 15,
-    borderBottom: 2,
+    borderBottomWidth: 2,
     borderBottomColor: '#4b5563',
+    borderBottomStyle: 'solid',
   },
   clinicName: {
     fontSize: 20,
@@ -89,8 +90,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     padding: 10,
     borderRadius: 4,
-    border: 1,
+    borderWidth: 1,
     borderColor: '#bae6fd',
+    borderStyle: 'solid',
     marginBottom: 10,
   },
   medicationName: {
@@ -117,8 +119,9 @@ const styles = StyleSheet.create({
   footer: {
     marginTop: 20,
     paddingTop: 15,
-    borderTop: 2,
+    borderTopWidth: 2,
     borderTopColor: '#4b5563',
+    borderTopStyle: 'solid',
   },
   signature: {
     marginTop: 30,
