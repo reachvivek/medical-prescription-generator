@@ -1,15 +1,49 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Zap, ShieldCheck, Printer, Download } from 'lucide-react';
+import { ArrowRight, Zap, ShieldCheck, Printer, Download, Maximize2, ChevronDown, FileText, Image as ImageIcon } from 'lucide-react';
 import Button from '../ui/Button';
 import Modal from '../ui/Modal';
 
 const Hero = () => {
   const navigate = useNavigate();
   const [showSampleModal, setShowSampleModal] = useState(false);
+  const [showDownloadDropdown, setShowDownloadDropdown] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const prescriptionRef = useRef(null);
 
-  const handleDownloadSample = () => {
+  const handleDownloadPDF = () => {
     window.print();
+    setShowDownloadDropdown(false);
+  };
+
+  const handleDownloadImage = async () => {
+    if (!prescriptionRef.current) return;
+
+    try {
+      const html2canvas = (await import('html2canvas')).default;
+      const canvas = await html2canvas(prescriptionRef.current, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+      });
+
+      const link = document.createElement('a');
+      link.download = 'prescription-sample.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      setShowDownloadDropdown(false);
+    } catch (error) {
+      console.error('Error downloading image:', error);
+    }
+  };
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
   };
 
   const handleGetStarted = () => {
@@ -123,17 +157,51 @@ const Hero = () => {
         title="Sample Prescription"
         size="xl"
         footer={
-          <button
-            onClick={handleDownloadSample}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-600 text-white hover:bg-sky-700 transition-colors text-xs"
-            title="Download Sample"
-          >
-            <Download className="h-3.5 w-3.5" />
-            <span>Download</span>
-          </button>
+          <div className="flex items-center gap-2">
+            {/* Fullscreen Button */}
+            <button
+              onClick={toggleFullscreen}
+              className="p-2 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
+              title="Toggle Fullscreen"
+            >
+              <Maximize2 className="h-4 w-4" />
+            </button>
+
+            {/* Download Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setShowDownloadDropdown(!showDownloadDropdown)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-600 text-white hover:bg-sky-700 transition-colors text-xs"
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span>Download</span>
+                <ChevronDown className="h-3.5 w-3.5" />
+              </button>
+
+              {/* Dropdown Menu */}
+              {showDownloadDropdown && (
+                <div className="absolute bottom-full right-0 mb-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50">
+                  <button
+                    onClick={handleDownloadPDF}
+                    className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                  >
+                    <FileText className="h-4 w-4 text-sky-600" />
+                    <span>Download as PDF</span>
+                  </button>
+                  <button
+                    onClick={handleDownloadImage}
+                    className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors border-t border-gray-100"
+                  >
+                    <ImageIcon className="h-4 w-4 text-sky-600" />
+                    <span>Download as Image</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         }
       >
-        <div className="bg-white p-8 border border-gray-200 rounded-lg relative overflow-hidden">
+        <div ref={prescriptionRef} className="bg-white p-8 border border-gray-200 rounded-lg relative overflow-hidden">
           {/* SAMPLE Watermark */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
             <div className="text-[120px] font-bold text-red-500/10 rotate-[-45deg] select-none tracking-widest">
