@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Zap, ShieldCheck, Printer } from 'lucide-react';
 import Button from '../ui/Button';
+import Modal from '../ui/Modal';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const [showSampleModal, setShowSampleModal] = useState(false);
 
   const handleGetStarted = () => {
     localStorage.setItem('mock_auth', 'true');
@@ -53,6 +56,7 @@ const Hero = () => {
                   <ArrowRight className="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Button>
                 <button
+                  onClick={() => setShowSampleModal(true)}
                   className="text-xs font-medium transition-all duration-200 py-2 opacity-70 hover:opacity-100 hover:translate-x-1"
                   style={{ color: '#0284c7' }}
                   onMouseEnter={(e) => e.target.style.color = '#0369a1'}
@@ -107,6 +111,95 @@ const Hero = () => {
             </div>
         </div>
       </div>
+
+      {/* Sample Prescription Modal */}
+      <Modal
+        isOpen={showSampleModal}
+        onClose={() => setShowSampleModal(false)}
+        title="Sample Prescription"
+        size="xl"
+      >
+        <div className="bg-white p-8 border border-gray-200 rounded-lg">
+          {/* Header */}
+          <div className="border-b-2 border-gray-300 pb-4 mb-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">City Medical Center</h2>
+            <div className="text-sm text-gray-600">
+              <p><strong>Dr. Sarah Johnson, MD</strong></p>
+              <p>Specialty: Internal Medicine</p>
+              <p>License: MED-123456</p>
+              <p>Phone: +1 (555) 123-4567</p>
+              <p>123 Medical Plaza, Suite 200, New York, NY 10001</p>
+            </div>
+          </div>
+
+          {/* Patient Details */}
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Patient Information</h3>
+            <div className="grid grid-cols-2 gap-4 text-sm">
+              <div><strong>Name:</strong> John Smith</div>
+              <div><strong>Age:</strong> 45 years</div>
+              <div><strong>Gender:</strong> Male</div>
+              <div><strong>Contact:</strong> +1 (555) 987-6543</div>
+              <div className="col-span-2"><strong>Address:</strong> 456 Oak Street, Brooklyn, NY 11201</div>
+            </div>
+          </div>
+
+          {/* Clinical Information */}
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Clinical Information</h3>
+            <div className="text-sm space-y-2">
+              <div><strong>Diagnosis:</strong> Hypertension (Stage 1), Type 2 Diabetes Mellitus</div>
+              <div><strong>Symptoms:</strong> Elevated blood pressure, increased thirst, frequent urination</div>
+              <div><strong>Lab Tests:</strong> CBC, Lipid Panel, HbA1c, Fasting Blood Sugar</div>
+            </div>
+          </div>
+
+          {/* Prescription */}
+          <div className="mb-4 bg-sky-50 p-4 rounded-lg">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+              <span className="bg-sky-600 text-white px-2 py-1 rounded mr-2 text-sm">Rx</span>
+              Prescription
+            </h3>
+            <div className="space-y-3">
+              <div className="bg-white p-3 rounded border border-sky-200">
+                <p className="font-semibold text-gray-900">1. Lisinopril 10mg</p>
+                <p className="text-sm text-gray-600">Dosage: 1 tablet | Frequency: Once daily | Duration: 30 days</p>
+                <p className="text-sm text-gray-500">Instructions: Take in the morning with water</p>
+              </div>
+              <div className="bg-white p-3 rounded border border-sky-200">
+                <p className="font-semibold text-gray-900">2. Metformin 500mg</p>
+                <p className="text-sm text-gray-600">Dosage: 1 tablet | Frequency: Twice daily | Duration: 30 days</p>
+                <p className="text-sm text-gray-500">Instructions: Take with meals</p>
+              </div>
+              <div className="bg-white p-3 rounded border border-sky-200">
+                <p className="font-semibold text-gray-900">3. Aspirin 81mg</p>
+                <p className="text-sm text-gray-600">Dosage: 1 tablet | Frequency: Once daily | Duration: 30 days</p>
+                <p className="text-sm text-gray-500">Instructions: Take after breakfast</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Notes */}
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Additional Notes</h3>
+            <p className="text-sm text-gray-600">
+              • Monitor blood pressure daily<br />
+              • Check blood sugar levels as directed<br />
+              • Follow low-sodium, diabetic-friendly diet<br />
+              • Regular exercise (30 minutes daily)<br />
+              • Avoid alcohol and smoking
+            </p>
+          </div>
+
+          {/* Follow-up */}
+          <div className="border-t-2 border-gray-300 pt-4">
+            <p className="text-sm"><strong>Follow-up Date:</strong> {new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>
+            <p className="text-sm mt-4"><strong>Doctor's Signature</strong></p>
+            <p className="text-sm text-gray-500 italic mt-2">Dr. Sarah Johnson, MD</p>
+            <p className="text-xs text-gray-400 mt-4">Date: {new Date().toLocaleDateString()}</p>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
