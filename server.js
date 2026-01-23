@@ -23,9 +23,9 @@ const getPrescriptionHTML = (data) => `
 
     body {
       font-family: 'Helvetica', 'Arial', sans-serif;
-      padding: 40px;
-      font-size: 11pt;
-      line-height: 1.6;
+      padding: 30px;
+      font-size: 9pt;
+      line-height: 1.4;
       color: #111827;
     }
 
@@ -34,9 +34,9 @@ const getPrescriptionHTML = (data) => `
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-45deg);
-      font-size: 120px;
+      font-size: 100px;
       font-weight: bold;
-      color: rgba(239, 68, 68, 0.1);
+      color: rgba(239, 68, 68, 0.08);
       z-index: 1000;
       pointer-events: none;
       letter-spacing: 0.2em;
@@ -49,38 +49,38 @@ const getPrescriptionHTML = (data) => `
 
     .header {
       border-bottom: 2px solid #4b5563;
-      padding-bottom: 15px;
-      margin-bottom: 20px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .clinic-name {
-      font-size: 20pt;
+      font-size: 16pt;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .doctor-info {
-      font-size: 10pt;
+      font-size: 8pt;
       color: #4b5563;
-      line-height: 1.8;
+      line-height: 1.5;
     }
 
     .section {
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .section-title {
-      font-size: 13pt;
+      font-size: 11pt;
       font-weight: bold;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       color: #111827;
     }
 
     .patient-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      font-size: 10pt;
+      gap: 6px;
+      font-size: 9pt;
     }
 
     .patient-grid .full-width {
@@ -93,84 +93,86 @@ const getPrescriptionHTML = (data) => `
 
     .prescription-section {
       background-color: #f0f9ff;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
     }
 
     .prescription-header {
       display: flex;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .rx-badge {
       background-color: #0891b2;
       color: white;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 10pt;
+      padding: 3px 6px;
+      border-radius: 3px;
+      font-size: 9pt;
       font-weight: bold;
-      margin-right: 8px;
+      margin-right: 6px;
     }
 
     .medication {
       background-color: white;
-      padding: 12px;
-      border-radius: 4px;
+      padding: 8px;
+      border-radius: 3px;
       border: 1px solid #bae6fd;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
 
     .medication-name {
-      font-size: 11pt;
+      font-size: 9pt;
       font-weight: bold;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .medication-details {
-      font-size: 9pt;
+      font-size: 8pt;
       color: #4b5563;
       margin-bottom: 2px;
     }
 
     .medication-instructions {
-      font-size: 9pt;
+      font-size: 8pt;
       color: #6b7280;
       font-style: italic;
     }
 
     .notes {
-      font-size: 10pt;
+      font-size: 8pt;
       color: #4b5563;
-      line-height: 1.8;
+      line-height: 1.6;
     }
 
     .footer {
       border-top: 2px solid #4b5563;
-      padding-top: 15px;
-      margin-top: 20px;
+      padding-top: 10px;
+      margin-top: 12px;
     }
 
     .signature-section {
-      margin-top: 40px;
+      margin-top: 20px;
     }
 
     .signature-label {
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      font-size: 9pt;
     }
 
     .signature-name {
       font-style: italic;
       color: #6b7280;
-      margin-top: 8px;
+      margin-top: 6px;
+      font-size: 8pt;
     }
 
     .date {
-      font-size: 9pt;
+      font-size: 8pt;
       color: #9ca3af;
-      margin-top: 15px;
+      margin-top: 8px;
     }
 
     @media print {
@@ -295,10 +297,10 @@ app.post('/api/generate-pdf', async (req, res) => {
       format: 'A4',
       printBackground: true,
       margin: {
-        top: '20px',
-        right: '20px',
-        bottom: '20px',
-        left: '20px'
+        top: '15px',
+        right: '15px',
+        bottom: '15px',
+        left: '15px'
       }
     });
 
