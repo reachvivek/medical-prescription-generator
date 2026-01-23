@@ -44,11 +44,14 @@ const Modal = ({
     md: 'max-w-lg',
     lg: 'max-w-2xl',
     xl: 'max-w-4xl',
-    full: 'max-w-7xl',
+    full: 'max-w-[95vw] h-[95vh]',
   };
 
   const modal = (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className={cn(
+      'fixed inset-0 z-50 flex items-center justify-center',
+      size === 'full' ? 'p-2' : 'p-4'
+    )}>
       {/* Overlay */}
       <div
         className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
@@ -81,7 +84,10 @@ const Modal = ({
         )}
 
         {/* Content */}
-        <div className="p-6 max-h-[calc(100vh-200px)] overflow-y-auto">
+        <div className={cn(
+          'p-6 overflow-y-auto',
+          size === 'full' ? 'max-h-[calc(95vh-150px)]' : 'max-h-[calc(100vh-200px)]'
+        )}>
           {children}
         </div>
 

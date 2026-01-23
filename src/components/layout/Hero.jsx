@@ -37,13 +37,7 @@ const Hero = () => {
   };
 
   const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-      setIsFullscreen(true);
-    } else {
-      document.exitFullscreen();
-      setIsFullscreen(false);
-    }
+    setIsFullscreen(!isFullscreen);
   };
 
   const handleGetStarted = () => {
@@ -155,7 +149,7 @@ const Hero = () => {
         isOpen={showSampleModal}
         onClose={() => setShowSampleModal(false)}
         title="Sample Prescription"
-        size="xl"
+        size={isFullscreen ? "full" : "xl"}
         footer={
           <div className="flex items-center gap-2">
             {/* Fullscreen Button */}
