@@ -123,10 +123,14 @@ const Hero = () => {
         title="Sample Prescription"
         size="xl"
         footer={
-          <Button onClick={handleDownloadSample} size="lg">
-            <Download className="h-4 w-4 mr-2" />
-            Download Sample
-          </Button>
+          <button
+            onClick={handleDownloadSample}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-600 text-white hover:bg-sky-700 transition-colors text-xs"
+            title="Download Sample"
+          >
+            <Download className="h-3.5 w-3.5" />
+            <span>Download</span>
+          </button>
         }
       >
         <div className="bg-white p-8 border border-gray-200 rounded-lg relative overflow-hidden">
